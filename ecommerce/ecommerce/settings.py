@@ -14,8 +14,6 @@ from pathlib import Path
 import os
 from os import getenv
 from dotenv import load_dotenv
-import pymysql
-pymysql.install_as_MySQLdb()
 
 load_dotenv()
 
@@ -85,11 +83,12 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': getenv('MYSQL_NAME'),
-        'HOST': getenv('MYSQL_HOST'),
         'USER': getenv('MYSQL_USER'),
-        'PASSWORD': getenv('MYSQL_PASSWORD')
+        'PASSWORD': getenv('MYSQL_PASSWORD'),
+        'HOST': getenv('MYSQL_HOST'),
+        'PORT': getenv('MYSQL_PORT'),
     }
 }
 
