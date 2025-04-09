@@ -12,8 +12,12 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from os import getenv
+from dotenv import load_dotenv
 import pymysql
 pymysql.install_as_MySQLdb()
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -82,10 +86,10 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
-        'HOST': '',
-        'USER': '',
-        'PASSWORD': ''
+        'NAME': getenv('MYSQL_NAME'),
+        'HOST': getenv('MYSQL_HOST'),
+        'USER': getenv('MYSQL_USER'),
+        'PASSWORD': getenv('MYSQL_PASSWORD')
     }
 }
 
