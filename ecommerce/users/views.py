@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.models import User
-from django.contrib.auth import logout
+from django.contrib.auth import logout, login
 from django.contrib.auth import authenticate
 
 from . serializers import LoginSerializer, RegistUserSerialzer
@@ -50,10 +50,25 @@ def regist_user(request):
 @api_view(['POST'])
 def log_out(request):
     if request.user.is_authenticated:
-        log_out(request)
-        Response({'message': 'Sesión cerrada'}, status=status.HTTP_200_OK)
-    else:
-        Response(status=status.HTTP_400_BAD_REQUEST)
+        # Destruye la sesión del servidor y cookies
+        logout(request)
+        
+        # Opcional: Elimina manualmente cookies importantes
+        response = Response(
+            {
+                'message': 'Logout successful',
+                'detail': 'Sesión cerrada correctamente'
+            },
+            status=status.HTTP_200_OK
+        )
+        response.delete_cookie('sessionid')  # Cookie de sesión
+        response.delete_cookie('csrftoken')  # Cookie CSRF
+        return response
+    
+    return Response(
+        {'error': 'No hay sesión activa'}, 
+        status=status.HTTP_400_BAD_REQUEST
+    )
 
 
 
