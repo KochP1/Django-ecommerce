@@ -8,6 +8,8 @@ body{
     box-sizing: border-box;
 }
 
+/* Inicio de sesión y registro de usuarios*/
+
 .log-in-form__wrapper{
     display: flex;
     width: 100%;
