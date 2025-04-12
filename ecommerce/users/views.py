@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.models import User
+from django.contrib.auth import logout
 from django.contrib.auth import authenticate
 
 from . serializers import LoginSerializer, RegistUserSerialzer
@@ -45,4 +46,14 @@ def regist_user(request):
         return Response({'message': 'Usuario creado'}, status=status.HTTP_201_CREATED)
     else:
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['POST'])
+def log_out(request):
+    if request.user.is_authenticated:
+        log_out(request)
+        Response({'message': 'Sesión cerrada'}, status=status.HTTP_200_OK)
+    else:
+        Response(status=status.HTTP_400_BAD_REQUEST)
+
+
 
