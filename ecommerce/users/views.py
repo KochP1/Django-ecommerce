@@ -6,7 +6,7 @@ from rest_framework import status
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
-from . serializers import LoginSerializer
+from . serializers import LoginSerializer, RegistUserSerialzer
 
 # Create your views here.
 
@@ -20,11 +20,29 @@ def log_in(request):
         )
 
         if user:
-            return Response({'message': 'Login succesfull', 'csrf_token': get_token(request)}, status=status.HTTP_200_OK)
+            user_data = {
+                'message': 'Login successful',
+                'csrf_token': get_token(request),
+                'user': {
+                    'first_name': user.first_name,
+                    'last_name': user.last_name,
+                    'email': user.email     
+                }
+            }
+            return Response(user_data, status=status.HTTP_200_OK)
         
         else:
             return Response({'messae': 'Login failed'}, status=status.HTTP_401_UNAUTHORIZED)
     else:
         # Datos de entrada inválidos
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['POST', 'GET'])
+def regist_user(request):
+    serializer = RegistUserSerialzer(data = request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({'message': 'Usuario creado'}, status=status.HTTP_201_CREATED)
+    else:
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
