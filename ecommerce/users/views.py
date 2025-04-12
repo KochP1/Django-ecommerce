@@ -50,7 +50,6 @@ def regist_user(request):
 @api_view(['POST'])
 def log_out(request):
     if request.user.is_authenticated:
-        # Destruye la sesión del servidor y cookies
         logout(request)
         
         # Opcional: Elimina manualmente cookies importantes
