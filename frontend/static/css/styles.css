@@ -257,3 +257,25 @@ footer{
     display: flex;
     justify-content: center;
 }
+
+/* Nintendo */
+
+
+/* transición de desvanecido */
+html {
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* transición al hacer clic */
+a {
+    transition: opacity 0.2s;
+}
+
+a:hover {
+    opacity: 0.8;
+}
