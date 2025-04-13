@@ -1,5 +1,4 @@
 // Inicio de sesion
-let user_data = undefined
 function log_in() {
     const loginForm = document.getElementById('log-in-form');
     loginForm.addEventListener('submit', async (event) => {
@@ -10,7 +9,7 @@ function log_in() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            credentials: 'include',  //cookies/CSRF
+            credentials: 'include',
             body: JSON.stringify({
                 username: document.getElementById('username_login').value,
                 password: document.getElementById('password_login').value,
@@ -26,7 +25,7 @@ function log_in() {
                 user: data.user  // { first_name, last_name, email }
             }));
 
-            window.location.href = 'landing.html'
+            window.location.href = 'index.html'
             console.log(data)
             // Redirigir o guardar token
         } else {
@@ -59,7 +58,7 @@ function regist_user() {
         try {
             if (response.ok) {
                 localStorage.clear()
-                window.location.href = 'index.html'
+                window.location.href = 'login.html'
             } else {
                 alert('Error al crear usuario!', data.message)
             }

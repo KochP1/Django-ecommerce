@@ -58,8 +58,8 @@ def log_out(request):
             },
             status=status.HTTP_200_OK
         )
-    response.delete_cookie('sessionid')  # Cookie de sesión
-    response.delete_cookie('csrftoken')  # Cookie CSRF
+    response.delete_cookie('sessionid')
+    response.delete_cookie('csrftoken')
     return response
 
 
