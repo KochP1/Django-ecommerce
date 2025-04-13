@@ -69,6 +69,7 @@ function regist_user() {
     })
 }
 
+// Cerrar sesion
 async function log_out() {
     try {
         const response = await fetch('http://127.0.0.1:8000/users/log_out/', {
