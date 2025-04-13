@@ -64,3 +64,15 @@ body{
 .regist-form{
     height: 700px !important;
 }
+
+/*NAVBAR*/
+
+.navbar{
+    background-image: url('../images/banner.png') !important;
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.nav-link {
+    color: #fff !important;
+}
