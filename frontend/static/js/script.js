@@ -20,6 +20,12 @@ function log_in() {
         const data = await response.json();
         
         if (response.ok) {
+            localStorage.setItem('userData', JSON.stringify({
+                isAuthenticated: true,
+                csrfToken: data.csrf_token,
+                user: data.user  // { first_name, last_name, email }
+            }));
+
             window.location.href = 'landing.html'
             console.log(data)
             // Redirigir o guardar token
@@ -62,4 +68,35 @@ function regist_user() {
         }
     
     })
+}
+
+async function log_out() {
+    try {
+        const response = await fetch('http://127.0.0.1:8000/users/log_out/', {
+            method: 'POST',
+            credentials: 'include',  // 🔑 Envía cookies automáticamente
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),  // Necesario para CSRF
+                'Content-Type': 'application/json'
+            }
+        });
+
+    
+        if (response.ok) {
+            localStorage.removeItem('userData');
+            window.location.href = 'index.html';
+        } else {
+            const errorData = await response.json();
+            alert(errorData.error || 'Error al cerrar sesión');
+        }
+    } catch (e) {
+        console.error('Error:', e);
+    }
+}
+
+// Función auxiliar para obtener cookies
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
 }

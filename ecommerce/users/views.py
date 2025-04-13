@@ -49,25 +49,18 @@ def regist_user(request):
     
 @api_view(['POST'])
 def log_out(request):
-    if request.user.is_authenticated:
-        logout(request)
-        
-        # Opcional: Elimina manualmente cookies importantes
-        response = Response(
+
+    logout(request)
+    response = Response(
             {
                 'message': 'Logout successful',
                 'detail': 'Sesión cerrada correctamente'
             },
             status=status.HTTP_200_OK
         )
-        response.delete_cookie('sessionid')  # Cookie de sesión
-        response.delete_cookie('csrftoken')  # Cookie CSRF
-        return response
-    
-    return Response(
-        {'error': 'No hay sesión activa'}, 
-        status=status.HTTP_400_BAD_REQUEST
-    )
+    response.delete_cookie('sessionid')  # Cookie de sesión
+    response.delete_cookie('csrftoken')  # Cookie CSRF
+    return response
 
 
 
