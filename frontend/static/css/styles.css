@@ -95,7 +95,7 @@ header {
     width: 100%;
 }
 .nav-pages{
-    background: url('../images/RetroRoom.png');
+    background: url('../images/banner.png');
     background-position: center;
     background-size: cover;
     background-color: transparent !important;
@@ -167,50 +167,55 @@ header {
 
 /* LANDING PAGE */
 
-.home-section{
-    width: 100vw;
-    height: 1080px;
+.cta__section{
+    width: 100%;
 }
 
-.home__container{
+.cta__wrapper{
     width: 100%;
-    height: 100%;
-    background-image: url('../images/RetroRoom.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     display: flex;
-    flex-direction: column;
-    color: #fff;
-    font-weight: 600;
-    position: relative;
-}
-
-.opac-background__container{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #1c1a1a;
-    opacity: 0.7;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
 }
 
 .cta__container{
-    z-index: 10;
+    margin-top: 50px;
     display: flex;
-    height: 100%;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
+}
+
+.cta-img__container{
+    background-color: #e83838;
+    height: 550px;
+    margin-top: 50px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 6px 2px #333;
+}
+
+.cta-img__container img{
+    width: 600px;
+    height: 800px;
+    border-radius: 10px;
 }
 
 h1{
-    font-size: 4rem !important;
+    font-size: 3.5rem !important;
+    font-family: "Jersey 15", sans-serif;
+}
+
+.cta__container h3{
+    font-family: "Jersey 15", sans-serif;
+    color: #e83838;
 }
 
 .btn-cta {
     background-color: #e83838 !important;
     border-color: #e83838 !important;
     font-size: 1.4rem !important;
+    font-family: "Jersey 15", sans-serif !important;
 }
 
 .btn-cta:active {
@@ -221,6 +226,92 @@ h1{
 .btn-cta:hover {
     background-color: #e83838ba !important;
     border-color: #e83838 !important;
+}
+
+.section-separator__landing{
+    margin-top: 300px;
+    border: 5px solid #333;
+}
+
+
+.landing-main__section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 150px;
+}
+
+.landing__h2{
+    display: flex;
+    margin-top: 150px;
+    justify-content: center;
+}
+
+.landing__h2 h2{
+    font-size: 2.7rem;
+    font-weight: 400;
+    font-family: "Jersey 15", sans-serif;
+    color: #e83838;
+}
+
+.landing-info__container:first-child{
+    margin-top: 70px;
+}
+
+.landing-info__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 250px;
+
+}
+
+.p__container{
+    width: 600px;
+    font-size: 1.3rem;
+}
+
+.p__container h3{
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: "Jersey 15", sans-serif;
+}
+
+.p__container p{
+    text-wrap: pretty;
+}
+
+.landing-img__container{
+    width: 400px;
+    height: 400px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 6px 0px #333;
+}
+
+.landing-info__container:first-child .landing-img__container{
+    background: url('../images/Games/nintendoGif.gif');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.landing-info__container:nth-child(2) .landing-img__container{
+    background: url('../images/17-genesis-cartridges.webp');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.landing-info__container:last-child .landing-img__container{
+    background: url('../images/ps1-classic.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.landing-info__container:last-child{
+    margin-bottom: 30px;
 }
 
 /* Footer */
