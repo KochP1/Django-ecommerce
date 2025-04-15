@@ -413,6 +413,29 @@ footer{
     border: 5px solid #333;
 }
 
+.catalog-main__wrapper{
+    display: grid;
+    grid-template-columns: repeat(5, max-content);
+    grid-template-columns: repeat(auto, max-content);
+    justify-content: center;
+}
+
+.btn-cart{
+    background-color: #e83838 !important;
+    border-color: #e83838 !important;
+}
+
+.btn-cart:active{
+    background-color: #e83838 !important;
+    border-color: #e83838 !important;
+}
+
+
+.btn-cart:hover{
+    background-color: #9b3030 !important;
+    border-color: #e83838 !important;
+}
+
 
 /* transición de desvanecido */
 html {
