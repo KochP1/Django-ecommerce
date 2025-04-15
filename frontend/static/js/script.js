@@ -145,11 +145,38 @@ async function getNintendoGames() {
 
         if (response.ok) {
             nintendoGamesCatalog = data;
-            console.log(nintendoGamesCatalog);
+            showCatalog(nintendoGamesCatalog);
         } else {
             alert(data.error)
         }
     } catch (e) {
         console.log(e)
     }
+}
+
+function showCatalog(catalog){
+    const gridCatalogContainer = document.getElementById('grid-catalog__container');
+    catalog.forEach(game => {
+        const card = `
+            <div class="col">
+                <div class="card" style="width: 18rem;" id="${game.id}">
+                    <img src="../static/images/${game.game_image}" class="card-img-top game-img" alt="${game.game_name}">
+                    <div class="card-body">
+                    <div class="content">
+                        <h5 class="card-title">${game.game_name}</h5>
+                        <p class="card-text">${game.description}</p>
+                        <h6>$${game.price}</h6>
+                        <form action="" method="post">
+                        <input type="hidden" value="" name="product">
+                        <button class="btn btn-primary btn-cart">
+                            Add to cart
+                        </button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        `
+        gridCatalogContainer.innerHTML += card;
+    });
 }

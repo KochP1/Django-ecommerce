@@ -378,7 +378,11 @@ footer{
     justify-content: center;
 }
 
-/* Nintendo */
+/* GAMES CATALOG */
+
+.catalog-main-section{
+    margin-bottom: 40px;
+}
 
 .nintendo-gif__container{
     display: flex;
@@ -409,7 +413,7 @@ footer{
 }
 
 .section-separator__nintendo{
-    margin-top: 50px;
+    margin-top: 20px;
     border: 5px solid #333;
 }
 
@@ -418,6 +422,11 @@ footer{
     grid-template-columns: repeat(5, max-content);
     grid-template-columns: repeat(auto, max-content);
     justify-content: center;
+    gap: 60px;
+}
+
+.game-img{
+    height: 360px !important;
 }
 
 .btn-cart{
