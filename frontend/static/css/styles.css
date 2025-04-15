@@ -419,7 +419,7 @@ footer{
 
 .catalog-main__wrapper{
     display: grid;
-    grid-template-columns: repeat(5, max-content);
+    grid-template-columns: repeat(3, max-content);
     grid-template-columns: repeat(auto, max-content);
     justify-content: center;
     gap: 60px;
