@@ -25,6 +25,7 @@ class ListGamesSerializer(serializers.ModelSerializer):
             'id',
             'genre',
             'company',
+            'Company_name',
             'game_name',
             'description',
             'release_date',

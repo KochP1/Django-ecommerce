@@ -131,10 +131,10 @@ function getCookie(name) {
 }
 
 // Obtener catalogo de juesgos
-let gamesCatalog = []
-async function getGames() {
+let nintendoGamesCatalog = []
+async function getNintendoGames() {
     try {
-        const response = await fetch('http://127.0.0.1:8000/catalog/games/', {
+        const response = await fetch('http://127.0.0.1:8000/catalog/games/1/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -144,9 +144,8 @@ async function getGames() {
         const data = await response.json();
 
         if (response.ok) {
-            gamesCatalog = data;
-            console.log(gamesCatalog);
-            alert(JSON.stringify(data));
+            nintendoGamesCatalog = data;
+            console.log(nintendoGamesCatalog);
         } else {
             alert(data.error)
         }

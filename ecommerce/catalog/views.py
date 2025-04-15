@@ -21,3 +21,11 @@ class ListGames(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(status= status.HTTP_201_CREATED)
+    
+class ListGamesByCompany(APIView):
+    allowed_methods = ['GET', 'HEAD', 'OPTIONS']
+
+    def get(self, request, pk):
+        games = Game.objects.filter(Company_name = pk).all()
+        serializer = ListGamesSerializer(games, many = True, read_only = True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
