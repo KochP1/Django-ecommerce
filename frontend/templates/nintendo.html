@@ -10,78 +10,77 @@
 </head>
 <body>
   <section class="header-section">
-    <div class="opac-background-nav__container"></div>
-      <header>
-        <nav class="navbar navbar-expand-lg nav-pages">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-              <img src="../static/images/logo.svg" alt="Pixelated paradise">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-              aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-      
-                    <li class="nav-item">
-                      <a class="nav-link" href="nintendo.html">
-                        Nintendo
-                      </a>
-                    </li>
-      
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        Sega
-                      </a>
-                    </li>
-      
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        Sony
-                      </a>
-                  </ul>
+    <header>
+      <nav class="navbar navbar-expand-lg nav-pages">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="../static/images/logo.svg" alt="Pixelated paradise">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="nintendo.html">
+                  Nintendo
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Sega
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Sony
+                </a>
+            </ul>
+
+            <div class="nav-options__container">
+              <ul class="navbar-nav nav-options__list">
+                
+                <li class="nav-item shopping-cart">
+                  <a class="nav-link" href="#">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                  </a>
+                </li>
   
-              <div class="nav-options__container">
-                <ul class="navbar-nav nav-options__list">
-                  
-                  <li class="nav-item shopping-cart">
-                    <a class="nav-link" href="#">
-                      <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
-                  </li>
-    
-                  <li class="nav-item theme">
-                    <a class="nav-link" href="#">
-                      <i class="fa-solid fa-moon"></i>
-                    </a>
-                  </li>
-    
-                  <li class="nav-item dropdown user-icon">
-                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa-solid fa-user"></i>
-                    </a>
-                    <ul class="dropdown-menu user-dropdown">
-                      <li><a class="dropdown-item" href="login.html">Log in</a></li>
-                      <li><a class="dropdown-item" onclick="log_out()">Log out</a></li>
-                      <li>
-                        <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
+                <li class="nav-item theme">
+                  <a class="nav-link" href="#">
+                    <i class="fa-solid fa-moon"></i>
+                  </a>
+                </li>
+  
+                <li class="nav-item dropdown user-icon">
+                  <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="user-link">
+                    <i class="fa-solid fa-user" id="user-icon"></i>
+                    <div class="user__container" id="user__container"></div>
+                  </a>
+                  <ul class="dropdown-menu user-dropdown">
+                    <li><a class="dropdown-item" href="login.html" id="log-in">Log in</a></li>
+                    <li><a class="dropdown-item" href="login.html" id="user-settings">Settings</a></li>
+                    <li class="dropdown-divider__nav-item" id="drop-divider">
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" onclick="log_out()" id="log-out">Log out</a></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
-        </nav>
-      </header>
-  </section>
-
+        </div>
+      </nav>
+    </header>
+</section>
 
    <section class="nintendo-main-section">
     <div class="nintendo-main__wrapper"></div>
@@ -136,6 +135,9 @@
     </section>
 
     <script src="../static/js/script.js"></script>
+    <script>
+      getGames();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 </html>

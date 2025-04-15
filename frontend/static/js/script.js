@@ -1,4 +1,5 @@
 // Inicio de sesion
+let user_info = [];
 function log_in() {
     const loginForm = document.getElementById('log-in-form');
     loginForm.addEventListener('submit', async (event) => {
@@ -24,15 +25,43 @@ function log_in() {
                 csrfToken: data.csrf_token,
                 user: data.user  // { first_name, last_name, email }
             }));
-
+            user_info = data.user;
+            updateUserIcon(user_info);
             window.location.href = 'index.html'
-            console.log(data)
             // Redirigir o guardar token
         } else {
             alert(data.error);
         }
     });
 }
+
+function updateUserIcon(user) {
+    const userIcon = document.getElementById('user-icon');
+    const userContainer = document.getElementById('user__container');
+    const loginOption = document.getElementById('log-in');
+    const logoutOption = document.getElementById('log-out');
+    const userSettings = document.getElementById('user-settings');
+    const dropDivider = document.getElementById('drop-divider');
+
+    if (user_info.length !== 0) {
+        userIcon.style.display = 'none';
+        userContainer.style.display = 'flex';
+        userContainer.textContent = user.first_name[0];
+        loginOption.style.display = 'none';
+        logoutOption.style.display = 'block';
+        userSettings.style.display = 'block';
+        dropDivider.style.display = 'block';
+    }
+
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedUser = JSON.parse(localStorage.getItem('userData'))?.user;
+    if (savedUser) {
+        user_info = savedUser;
+        updateUserIcon(user_info);
+    }
+});
 
 // Registro de usuarios
 function regist_user() {
@@ -74,7 +103,7 @@ async function log_out() {
     try {
         const response = await fetch('http://127.0.0.1:8000/users/log_out/', {
             method: 'POST',
-            credentials: 'include',  // 🔑 Envía cookies automáticamente
+            credentials: 'include',  // Envía cookies automáticamente
             headers: {
                 'X-CSRFToken': getCookie('csrftoken'),  // Necesario para CSRF
                 'Content-Type': 'application/json'
@@ -99,4 +128,29 @@ function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+// Obtener catalogo de juesgos
+let gamesCatalog = []
+async function getGames() {
+    try {
+        const response = await fetch('http://127.0.0.1:8000/catalog/games/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            gamesCatalog = data;
+            console.log(gamesCatalog);
+            alert(JSON.stringify(data));
+        } else {
+            alert(data.error)
+        }
+    } catch (e) {
+        console.log(e)
+    }
 }

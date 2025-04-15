@@ -71,16 +71,17 @@
                   </li>
     
                   <li class="nav-item dropdown user-icon">
-                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa-solid fa-user"></i>
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="user-link">
+                      <i class="fa-solid fa-user" id="user-icon"></i>
+                      <div class="user__container" id="user__container"></div>
                     </a>
                     <ul class="dropdown-menu user-dropdown">
-                      <li><a class="dropdown-item" href="login.html">Log in</a></li>
-                      <li><a class="dropdown-item" onclick="log_out()">Log out</a></li>
-                      <li>
+                      <li><a class="dropdown-item" href="login.html" id="log-in">Log in</a></li>
+                      <li><a class="dropdown-item" href="login.html" id="user-settings">Settings</a></li>
+                      <li class="dropdown-divider__nav-item" id="drop-divider">
                         <hr class="dropdown-divider">
                       </li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      <li><a class="dropdown-item" onclick="log_out()" id="log-out">Log out</a></li>
                     </ul>
                   </li>
                 </ul>

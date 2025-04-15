@@ -138,8 +138,37 @@ header {
     gap: 20px !important;
 }
 
+#user-settings{
+    display: none;
+}
+
+#log-out{
+    display: none;
+}
+
+.user-settings{
+    display: none;
+}
+
+.user__container{
+    width: 30px;
+    height: 30px;
+    background-color: #e83838;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.3rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+
 .user-dropdown{
     left: -60px !important;
+}
+
+.dropdown-divider__nav-item{
+    display: none;
 }
 
 .shopping-cart a i, .theme a i, .user-icon a i{
