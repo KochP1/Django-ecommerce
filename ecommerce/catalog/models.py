@@ -17,5 +17,5 @@ class Game(models.Model):
     description = models.CharField(max_length=100)
     release_date = models.DateField()
     price = models.FloatField()
-    game_image = models.ImageField(null=True)
+    game_image = models.ImageField(upload_to='games/', null=True)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -160,7 +160,7 @@ function showCatalog(catalog){
         const card = `
             <div class="col">
                 <div class="card" style="width: 18rem;" id="${game.id}">
-                    <img src="../static/images/${game.game_image}" class="card-img-top game-img" alt="${game.game_name}">
+                    <img src="../../ecommerce/media${game.game_image}" class="card-img-top game-img" alt="${game.game_name}">
                     <div class="card-body">
                     <div class="content">
                         <h5 class="card-title">${game.game_name}</h5>
