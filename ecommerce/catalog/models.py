@@ -19,3 +19,13 @@ class Game(models.Model):
     price = models.FloatField()
     game_image = models.ImageField(upload_to='games/', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+class Consoles(models.Model):
+    genre = models.ForeignKey(Genre, related_name='console_genre', on_delete=models.CASCADE)
+    Company_name = models.ForeignKey(Company, related_name='console_company_name', on_delete=models.CASCADE)
+    console_name = models.CharField(max_length=30)
+    description = models.CharField(max_length=100)
+    release_date = models.DateField()
+    price = models.FloatField()
+    console_image = models.ImageField(upload_to='consoles/', null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
