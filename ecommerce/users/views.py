@@ -55,7 +55,7 @@ def log_out(request):
     response = Response(
             {
                 'message': 'Logout successful',
-                'detail': 'Sesión cerrada correctamente'
+                'detail': 'Session closed'
             },
             status=status.HTTP_200_OK
         )
