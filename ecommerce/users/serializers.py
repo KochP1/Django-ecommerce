@@ -40,3 +40,16 @@ class RegistUserSerialzer(serializers.ModelSerializer):
         )
         return user
 
+class EditUserNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            'username'
+        ]
+
+class EditEmailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            'email'
+        ]

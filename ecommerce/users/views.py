@@ -3,11 +3,12 @@ from django.middleware.csrf import get_token
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, login
 from django.contrib.auth import authenticate
 
-from . serializers import LoginSerializer, RegistUserSerialzer
+from . serializers import LoginSerializer, RegistUserSerialzer, EditUserNameSerializer, EditEmailSerializer
 
 # Create your views here.
 
@@ -61,6 +62,33 @@ def log_out(request):
     response.delete_cookie('sessionid')
     response.delete_cookie('csrftoken')
     return response
+
+class PatchEmail(APIView):
+    allowed_methods = ['PATCH']
+
+    def patch(self, request, pk):
+        user = User.object.get(pk = pk)
+        serializer = EditEmailSerializer(user, data = request.data, partial = True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(status=status.HTTP_200_OK)
+
+class PatchUserName(APIView):
+    allowed_methods = ['PATCH']
+
+    def get(self, request, pk):
+        user = User.objects.get(pk = pk)
+        serializer = EditUserNameSerializer(user, many = False, read_only = True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def patch (self, request, pk):
+        user = User.objects.get(pk = pk)
+        serializer = EditUserNameSerializer(user, data = request.data, partial = True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(status=status.HTTP_200_OK)
+
+
 
 
 
