@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from . models import Game, Genre, Company
+from . models import Game, Genre, Company, Consoles
 
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:
@@ -45,4 +45,45 @@ class GameSerializer(serializers.ModelSerializer):
             'release_date',
             'price',
             'game_image'
+        ]
+
+class ConsoleSerializer(serializers.ModelSerializer):
+    console_image = serializers.ImageField(required=False)
+    class Meta:
+        model = Consoles
+        fields = [
+            'Company_name',
+            'console_name',
+            'description',
+            'release_date',
+            'price',
+            'console_image'
+        ]
+
+class ListConsoleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Consoles
+        fields = [
+            'id',
+            'Company_name',
+            'console_name',
+            'description',
+            'release_date',
+            'price',
+            'console_image'
+        ]
+
+class ListConsoleSerializerDetailed(serializers.ModelSerializer):
+    company = CompanySerializer(read_only = True, source = 'Company_name')
+    class Meta:
+        model = Consoles
+        fields = [
+            'id',
+            'company',
+            'Company_name',
+            'console_name',
+            'description',
+            'release_date',
+            'price',
+            'console_image'
         ]
