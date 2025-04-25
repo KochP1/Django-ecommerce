@@ -24,7 +24,7 @@ export const NavBar = () => {
                         <i className='fa-solid fa-cart-shopping'></i>
                     </li>
                     <li className="options-navLink navItem dropdown">
-                        <i className='fa-solid fa-user'></i>
+                        <i className='fa-solid fa-user' role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
 
                         <ul className='dropdown-menu'>
                             <li><a className="dropdown-item" id="log-in">Log in</a></li>
