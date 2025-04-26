@@ -7,3 +7,22 @@ body{
 * {
   box-sizing: border-box;
 }
+
+
+html {
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+a {
+  transition: opacity 0.2s;
+}
+
+a:hover {
+  opacity: 0.8;
+}

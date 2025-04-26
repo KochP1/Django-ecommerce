@@ -7,9 +7,10 @@ export const NavBar = () => {
             <ul className='navList'>
                 <li className="navItem">
                     <a href="#" className="navLink">
-                        <img src="/logo.svg" alt="Pixelated Paradise" className='imgLogo'/>
+                        <img src="/images/logo.svg" alt="Pixelated Paradise" className='imgLogo'/>
                     </a>
                 </li>
+                <li className="navItem"><a href="#" className="navLink">Home</a></li>
                 <li className="navItem"><a href="#" className="navLink">Nintendo</a></li>
                 <li className="navItem"><a href="#" className="navLink">Sega</a></li>
                 <li className="navItem"><a href="#" className="navLink">Sony</a></li>
@@ -17,13 +18,13 @@ export const NavBar = () => {
 
             <div className='navOptions__container'>
                 <ul className='options-navList navList'>
-                    <li className="options-navLink navItem">
+                    <li className="options-navLink options-navItem">
                         <i className='fa-solid fa-moon'></i>
                     </li>
-                    <li className="options-navLink navItem">
+                    <li className="options-navLink options-navItem">
                         <i className='fa-solid fa-cart-shopping'></i>
                     </li>
-                    <li className="options-navLink navItem dropdown">
+                    <li className="options-navLink options-navItem dropdown">
                         <i className='fa-solid fa-user' role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
 
                         <ul className='dropdown-menu'>
