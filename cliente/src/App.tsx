@@ -1,21 +1,23 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
-import { NavBar, Landing, Footer } from './components'
+import { NavBar, Footer } from './components'
+import { Landing } from './pages';
 
 function App() {
 
   return (
     <>
-      <section className='headerSection'>
-        <NavBar/>
-      </section>
-
-      <section className='landingSection'>
-        <Landing></Landing>
-      </section>
-
-      <section className='footerSection'>
-        <Footer></Footer>
-      </section>
+    <Router>
+        <section className='headerSection'>
+            <NavBar/>
+        </section>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+        </Routes>
+        <section className='footerSection'>
+          <Footer></Footer>
+        </section>
+    </Router>
     </>
 )}
 
