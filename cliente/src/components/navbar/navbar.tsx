@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './navbar.css'
 
 
@@ -6,14 +7,14 @@ export const NavBar = () => {
         <nav className='navBar'>
             <ul className='navList'>
                 <li className="navItem">
-                    <a href="#" className="navLink">
+                    <Link to={"/"} className="navLink">
                         <img src="/images/logo.svg" alt="Pixelated Paradise" className='imgLogo'/>
-                    </a>
+                    </Link>
                 </li>
-                <li className="navItem"><a href="#" className="navLink">Home</a></li>
-                <li className="navItem"><a href="#" className="navLink">Nintendo</a></li>
-                <li className="navItem"><a href="#" className="navLink">Sega</a></li>
-                <li className="navItem"><a href="#" className="navLink">Sony</a></li>
+                <li className="navItem"><Link to={"/"} className="navLink">Home</Link></li>
+                <li className="navItem"><Link to={"Nintendo"} className="navLink">Nintendo</Link></li>
+                <li className="navItem"><Link to={""} className="navLink">Sega</Link></li>
+                <li className="navItem"><Link to={""} className="navLink">Sony</Link></li>
             </ul>
 
             <div className='navOptions__container'>
