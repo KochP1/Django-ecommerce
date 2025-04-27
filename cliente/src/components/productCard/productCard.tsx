@@ -1,7 +1,4 @@
 import './productCard.css'
-import { useFetch } from '../../hooks';
-
-const url = '';
 
 interface Props {
     id: number

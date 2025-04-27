@@ -1,5 +1,8 @@
 import './nintendo.css'
 import { Card } from '../../components'
+import { useFetch } from '../../hooks';
+
+const url = '';
 
 export const NintendoPage = () => {
     return (
