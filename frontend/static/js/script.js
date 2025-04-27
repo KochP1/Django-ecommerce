@@ -156,6 +156,7 @@ async function getNintendoGames() {
 
 function showCatalog(catalog){
     const gridCatalogContainer = document.getElementById('grid-catalog__container');
+    console.log(typeof(catalog))
     catalog.forEach(game => {
         const card = `
             <div class="col">

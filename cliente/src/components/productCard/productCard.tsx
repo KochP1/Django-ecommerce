@@ -5,13 +5,17 @@ interface Props {
     game: string
     description: string
     price: number
+    game_image: string
 }
 
-export const Card = ({id, game, description, price}: Props) => {
+export const Card = ({id, game, description, price, game_image}: Props) => {
+
+    const imageUrl = import.meta.env.MODE === 'development' ? `http://127.0.0.1:8000${game_image}`: `/media${game_image}`;
+
     return (
         <div className="col">
                 <div className="card" id={`cardProduct-${id}`}>
-                    <img src="" className="card-img-top game-img" />
+                    <img src={imageUrl} className="card-img-top game-img" />
                     <div className="card-body">
                     <div className="content">
                         <h5 className="card-title">{game}</h5>
@@ -26,6 +30,6 @@ export const Card = ({id, game, description, price}: Props) => {
                     </div>
                     </div>
                 </div>
-            </div>
+        </div>
     )
 }

@@ -64,6 +64,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5500",
     "http://localhost:5500",
+    "http://127.0.0.1:5173",
+    "http://localhost:5173",
 ]
 
 # Permitir cookies y CSRF
@@ -136,7 +138,7 @@ USE_I18N = True
 USE_TZ = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Carpeta diferente a static
-MEDIA_URL = '/'
+MEDIA_URL = '/media/'
 
 
 # Static files (CSS, JavaScript, Images)
