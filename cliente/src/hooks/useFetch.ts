@@ -8,7 +8,7 @@ interface Params<T> {
     error: ErrorTye
 }
 
-export const useFetch = <T>(url: string): Params<T> => {
+export const useFetch = <T>(url: string, method: string = 'GET', body?: any): Params<T> => {
     const [data, setData] = useState<Data<T>>(null)
     const [error, setError] = useState<ErrorTye>(null)
 
@@ -16,13 +16,27 @@ export const useFetch = <T>(url: string): Params<T> => {
         let controller = new AbortController
         const fetchData = async () => {
             try {
-                const response = await fetch(url);
+                const options: RequestInit = {
+                    method,
+                    signal: controller.signal,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                };
 
-                if (response.ok) {
-                    const jsonData: T = await response.json();
-                    setData(jsonData);
-                    setError(null);
+                if (body && method !== 'GET') {
+                    options.body = JSON.stringify(body);
                 }
+
+                const response = await fetch(url, options);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ERROR STATUS: ${response.status}` )
+                }
+
+                const jsonData: T = await response.json();
+                setData(jsonData);
+                setError(null);
             } catch (e) {
                 setError(e as Error)
             }
@@ -31,7 +45,7 @@ export const useFetch = <T>(url: string): Params<T> => {
         return () => {
             controller.abort()
         }
-    }, [url])
+    }, [url, method, body])
     
     return { data, error }
 

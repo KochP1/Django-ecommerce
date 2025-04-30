@@ -18,9 +18,14 @@
     padding: 10px;
 }
 
+.regist-form div label {
+    color: gray;
+}
+
 .btn-login {
     background-color: #e83838 !important;
     border-color: #e83838 !important;
+    font-size: 1.4rem;
 }
 
 .btn-login:active {
