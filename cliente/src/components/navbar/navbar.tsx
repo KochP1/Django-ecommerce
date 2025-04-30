@@ -3,6 +3,13 @@ import './navbar.css'
 
 
 export const NavBar = () => {
+
+    const userData = localStorage.getItem('userData')
+    if (userData) {
+        const user = JSON.parse(userData)
+        const name = user?.user?.first_name 
+        console.log(name)
+    }
     return (
         <nav className='navBar'>
             <ul className='navList'>
@@ -12,7 +19,7 @@ export const NavBar = () => {
                     </Link>
                 </li>
                 <li className="navItem"><Link to={"/"} className="navLink">Home</Link></li>
-                <li className="navItem"><Link to={"Nintendo"} className="navLink">Nintendo</Link></li>
+                <li className="navItem"><Link to={"/Nintendo"} className="navLink">Nintendo</Link></li>
                 <li className="navItem"><Link to={""} className="navLink">Sega</Link></li>
                 <li className="navItem"><Link to={""} className="navLink">Sony</Link></li>
             </ul>
@@ -29,7 +36,7 @@ export const NavBar = () => {
                         <i className='fa-solid fa-user' role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
 
                         <ul className='dropdown-menu'>
-                            <li><Link to={"Login"} className="dropdown-item">Sign in</Link></li>
+                            <li><Link to={"/Login"} className="dropdown-item">Sign in</Link></li>
                             <li><a className="dropdown-item" href="#" id="user-settings">Settings</a></li>
                             <li className="dropdown-divider__nav-item" id="drop-divider">
                                 <hr className="dropdown-divider"></hr>

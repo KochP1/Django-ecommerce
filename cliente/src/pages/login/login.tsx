@@ -35,11 +35,20 @@ export const LoginPage = () => {
                 })
             };
 
-            const response = await fetch('http://127.0.0.1:8000/users/regist_user/', options);
+            const response = await fetch('http://127.0.0.1:8000/users/login/', options);
+
+            const data = await response.json();
 
             if (!response.ok) {         
                 throw new Error(`HTTP error! status: ${response.status }`);
             }
+
+            localStorage.setItem('userData', JSON.stringify({
+                isAuthenticated: true,
+                csrfToken: data.csrf_token,
+                user: data.user
+            }));
+
             navigate('/')
         } catch (error) {
             setApiError(error as Error);
@@ -58,7 +67,7 @@ export const LoginPage = () => {
                 <InputFormLogin name="username" control={control} label="Username" type="text" error={errors.username}></InputFormLogin>
                 <InputFormLogin name="password" control={control} label="Password" type="password" error={errors.password}></InputFormLogin>
                 <button type="submit" className="btn btn-primary btn-login">Submit</button>
-                <Link to={'Register'} className="login-form__link">Don't have an account?</Link>
+                <Link to={'/Register'} className="login-form__link">Don't have an account?</Link>
                 <Link to={''} className="login-form__link">Forgot password?</Link>
             </form>
         </div>
