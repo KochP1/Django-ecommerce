@@ -1,15 +1,9 @@
 import { Link } from 'react-router-dom'
+import { UserIcon } from '../userIcon/userIcon'
 import './navbar.css'
 
 
 export const NavBar = () => {
-
-    const userData = localStorage.getItem('userData')
-    if (userData) {
-        const user = JSON.parse(userData)
-        const name = user?.user?.first_name 
-        console.log(name)
-    }
     return (
         <nav className='navBar'>
             <ul className='navList'>
@@ -32,18 +26,8 @@ export const NavBar = () => {
                     <li className="options-navLink options-navItem">
                         <i className='fa-solid fa-cart-shopping'></i>
                     </li>
-                    <li className="options-navLink options-navItem dropdown">
-                        <i className='fa-solid fa-user' role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
 
-                        <ul className='dropdown-menu'>
-                            <li><Link to={"/Login"} className="dropdown-item">Sign in</Link></li>
-                            <li><a className="dropdown-item" href="#" id="user-settings">Settings</a></li>
-                            <li className="dropdown-divider__nav-item" id="drop-divider">
-                                <hr className="dropdown-divider"></hr>
-                            </li>
-                            <li><a className="dropdown-item" id="log-out">Log out</a></li>
-                        </ul>
-                    </li>
+                    <UserIcon/>
                 </ul>
             </div>
         </nav>

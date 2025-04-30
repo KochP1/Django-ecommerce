@@ -1,0 +1,13 @@
+.userIcon__container{
+    color: #fff;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #e83838;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
