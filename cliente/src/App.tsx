@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import { NavBar, Footer } from './components'
-import { Landing, NintendoPage, RegisterPage } from './pages';
+import { Landing, NintendoPage, RegisterPage, LoginPage } from './pages';
 
 function App() {
 
@@ -15,6 +15,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/Nintendo" element={<NintendoPage />} />
           <Route path="/Register" element={<RegisterPage />}/>
+          <Route path="/Login" element={<LoginPage />}/>
         </Routes>
         <section className='footerSection'>
           <Footer></Footer>

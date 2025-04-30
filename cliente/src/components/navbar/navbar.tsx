@@ -29,7 +29,7 @@ export const NavBar = () => {
                         <i className='fa-solid fa-user' role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
 
                         <ul className='dropdown-menu'>
-                            <li><Link to={"Register"} className="dropdown-item">Sign up</Link></li>
+                            <li><Link to={"Login"} className="dropdown-item">Sign in</Link></li>
                             <li><a className="dropdown-item" href="#" id="user-settings">Settings</a></li>
                             <li className="dropdown-divider__nav-item" id="drop-divider">
                                 <hr className="dropdown-divider"></hr>

@@ -1,18 +1,18 @@
 import { Controller, Control, FieldError } from "react-hook-form";
-import { FormValues } from "../models";
+import { FormValuesLogIn } from "../models";
 import './inputForm.css'
 
 
 
 interface Props {
-    name: keyof FormValues
-    control: Control<FormValues>
+    name: keyof FormValuesLogIn
+    control: Control<FormValuesLogIn>
     label: string
     type?: string
     error?: FieldError
 }
 
-export const InputForm = ({name, control, label, type, error}: Props) => {
+export const InputFormLogin = ({name, control, label, type, error}: Props) => {
     return (
         <div className="input-form__container">
             <label htmlFor={name}>{label}</label>

@@ -8,4 +8,12 @@ export const schema = z.object({
     password: z.string().min(6, 'Password need to have at least 6 characters').max(12, 'Password can have 12 characters max'),
 });
 
+
 export type FormValues = z.infer<typeof schema>;
+
+export const schema_login = z.object({
+    username: z.string().min(1, 'username is required'),
+    password: z.string().min(6, 'Password need to have at least 6 characters'),
+});
+
+export type FormValuesLogIn = z.infer<typeof schema_login>;
