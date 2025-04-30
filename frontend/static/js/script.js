@@ -89,7 +89,7 @@ function regist_user() {
                 localStorage.clear()
                 window.location.href = 'login.html'
             } else {
-                alert('Error al crear usuario!', data.message)
+                alert('Error al crear usuario!', data.status)
             }
         } catch (e) {
             console.log(`Error: ${e}`)

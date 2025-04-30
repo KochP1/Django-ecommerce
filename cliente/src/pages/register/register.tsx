@@ -5,7 +5,6 @@ import { useState } from "react";
 
 import { InputForm } from "../../components/InputForm/inputForm";
 import { FormValues, schema } from "../../components/models";
-import { useFetch } from "../../hooks";
 import './register.css'
 
 export const RegisterPage = () => {
@@ -19,11 +18,15 @@ export const RegisterPage = () => {
 
 
     // Estado para manejar la respuesta
-    const [response, setResponse] = useState<any>(null);
     const [apiError, setApiError] = useState<Error | null>(null);
 
-    const onSubmit: SubmitHandler<FormValues> = async (datas) => {
+    const onSubmit: SubmitHandler<FormValues> = async (fields) => {
         setApiError(null);
+        const name = fields.name
+        const lastName = fields.lastName
+        const email = fields.email
+        const username = fields.username
+        const password = fields.password
         
         try {
             const options = {
@@ -31,23 +34,32 @@ export const RegisterPage = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(datas)
+                body: JSON.stringify({
+                    "username": username,
+                    "password": password,
+                    "first_name": name,
+                    "last_name": lastName,
+                    "email": email,
+                })
             };
 
             const response = await fetch('http://127.0.0.1:8000/users/regist_user/', options);
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            if (!response.ok) {         
+                throw new Error(`HTTP error! status: ${response.status }`);
             }
-
-            const result = await response.json();
-            setResponse(result);
             navigate('/')
         } catch (error) {
             setApiError(error as Error);
             console.log(error)
         }
     };
+
+    if (apiError) {
+        return(
+            <div>Error</div>
+        )
+    }
 
 
     return (

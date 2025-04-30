@@ -18,7 +18,8 @@ class RegistUserSerialzer(serializers.ModelSerializer):
         fields = ('username', 'password', 'email', 'first_name', 'last_name')
         extra_kwargs = {
             'first_name': {'required': True},
-            'last_name': {'required': True}
+            'last_name': {'required': True},
+            'email': {'required': True}
         }
     def validate_email(self, value):
         if User.objects.filter(email=value).exists():
