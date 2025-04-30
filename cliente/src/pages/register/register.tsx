@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SubmitHandler, useForm } from "react-hook-form"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 
 import { InputForm } from "../../components/InputForm/inputForm";
@@ -71,6 +71,8 @@ export const RegisterPage = () => {
                 <InputForm name="username" control={control} label="Username" type="text" error={errors.username}></InputForm>
                 <InputForm name="password" control={control} label="Password" type="password" error={errors.password}></InputForm>
                 <button type="submit" className="btn btn-primary btn-login">Submit</button>
+                <Link to={''} className="regist-form__link">Already have an account?</Link>
+                <Link to={''} className="regist-form__link">Forgot password??</Link>
             </form>
         </div>
     )
