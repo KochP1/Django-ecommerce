@@ -55,12 +55,6 @@ export const RegisterPage = () => {
         }
     };
 
-    if (apiError) {
-        return(
-            <div>Error</div>
-        )
-    }
-
 
     return (
         <div className='register__wrapper'>
@@ -74,6 +68,14 @@ export const RegisterPage = () => {
                 <Link to={''} className="regist-form__link">Already have an account?</Link>
                 <Link to={''} className="regist-form__link">Forgot password??</Link>
             </form>
+
+            {apiError && (
+                <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{apiError.message}</strong>
+                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+            )}
         </div>
     )
 }

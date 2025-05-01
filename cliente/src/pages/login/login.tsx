@@ -56,11 +56,6 @@ export const LoginPage = () => {
         }
     };
 
-    if (apiError) {
-        return(
-            <div>Error</div>
-        )
-    }
     return (
         <div className='login__wrapper'>
             <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
@@ -70,6 +65,14 @@ export const LoginPage = () => {
                 <Link to={'/Register'} className="login-form__link">Don't have an account?</Link>
                 <Link to={''} className="login-form__link">Forgot password?</Link>
             </form>
+
+            {apiError && (
+                <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>invalid credentials</strong>
+                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+            )}
         </div>
     )
 }
