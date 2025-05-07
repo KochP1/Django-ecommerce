@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import { NavBar, Footer } from './components'
-import { Landing, NintendoPage, RegisterPage, LoginPage } from './pages';
+import { Landing, NintendoPage, RegisterPage, LoginPage, SegaPage } from './pages';
 
 function App() {
 
@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/Nintendo" element={<NintendoPage />} />
+          <Route path="/Sega" element={<SegaPage />}/>
           <Route path="/Register" element={<RegisterPage />}/>
           <Route path="/Login" element={<LoginPage />}/>
         </Routes>
